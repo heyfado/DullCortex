@@ -1,4 +1,4 @@
-## " A quick way to fix Razer Synapse"
+## "A quick way to fix Razer Synapse"
 
 Hello,
 This is a quick script I threw together to remove the Razer Game Manager (& Service) from my computer.
@@ -9,3 +9,4 @@ This program requires being run as administrator, and is supposed to trigger a U
 
 Code is simple, commented, and *decently* readable, feel free to tweak it on your own, or suggest changes here!
 Excuse the dumb parody name, as I forgot Razer already had a product called Razer Cortex. 
+-fado
