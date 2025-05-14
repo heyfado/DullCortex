@@ -31,7 +31,7 @@ taskkill /f /im "Synapse3.exe"
 taskkill /f /im "Synapse3.exe"
 taskkill /f /im "Razer Central.exe"
 taskkill /f /im "RazerCentralService.exe"
-taskkill /f /im "RazerCortex.exe
+taskkill /f /im "RazerCortex.exe"
 taskkill /f /im "RazerCortexService.exe"
 taskkill /f /im "GameManagerService.exe"
 taskkill /f /im "RzActionSvc.exe"
