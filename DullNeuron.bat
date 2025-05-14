@@ -27,6 +27,7 @@ taskkill /f /im "Razer Synapse.exe"
 taskkill /f /im "Razer Synapse 3.exe"
 taskkill /f /im "Razer Synapse 4.exe"
 taskkill /f /im "RazerAppEngine.exe"
+taskkill /f /im "Razer App Engine.exe"
 taskkill /f /im "rzappengine.exe"
 taskkill /f /im "Synapse.exe"
 taskkill /f /im "Synapse3.exe"
@@ -41,7 +42,8 @@ taskkill /f /im "GameManagerService3.exe"
 taskkill /f /im "RzActionSvc.exe"
 taskkill /f /im "RzChromaStreamServer.exe"
 taskkill /f /im "RzDeviceEngine.exe"
-taskkill /f /im "RzUpdateManager.exe"
+taskkill /f /im "RazerAppEngine.exe"
+taskkill /f /im "RzEngineMon.exe"
 :: As of right now I do not see a reason to kill ingame services, but I will leave this here for future reference
 
 :: Wait for system to catch up:
@@ -87,13 +89,17 @@ echo "Attempting to restart Razer Synapse"
 Start "" "C:\Program Files (x86)\Razer\Synapse3\WPFUI\Framework\Razer Synapse 3 Host\Razer Synapse 3.exe"
 Start "" "C:\Program Files\Razer\RazerAppEngine\RazerAppEngine.exe"
 
+TIMEOUT /T 1
+
 :: Restart the system
 echo "############################################"
 echo "############################################"
 echo " FIX COMPLETE! "
 echo "The system will now be restarted. There will be a delay!"
+echo "Open Synapse manually after restart"
 echo "############################################"
 echo "############################################"
+TIMEOUT /T 5
 shutdown -r
 
 :: I do not know why Synapse will seemingly only play nice again after a failed program start & a system restart, but it does.
