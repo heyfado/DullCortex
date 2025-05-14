@@ -21,19 +21,23 @@ if not "%1"=="am_admin" (
 
 :: Stop all Razer Services (not all of these are necessary, but Razer may change their behavior in the future)
 echo "Attempting to stop Razer Services"
-taskkill /f /im "Razer Synapse.exe"
 taskkill /f /im "Razer Synapse Service.exe"
 taskkill /f /im "Razer Synapse Service Process.exe"
+taskkill /f /im "Razer Synapse.exe"
 taskkill /f /im "Razer Synapse 3.exe"
+taskkill /f /im "Razer Synapse 4.exe"
 taskkill /f /im "RazerAppEngine.exe"
 taskkill /f /im "rzappengine.exe"
+taskkill /f /im "Synapse.exe"
 taskkill /f /im "Synapse3.exe"
-taskkill /f /im "Synapse3.exe"
+taskkill /f /im "Synapse4.exe"
 taskkill /f /im "Razer Central.exe"
 taskkill /f /im "RazerCentralService.exe"
 taskkill /f /im "RazerCortex.exe"
 taskkill /f /im "RazerCortexService.exe"
+taskkill /f /im "GMS3"
 taskkill /f /im "GameManagerService.exe"
+taskkill /f /im "GameManagerService3.exe"
 taskkill /f /im "RzActionSvc.exe"
 taskkill /f /im "RzChromaStreamServer.exe"
 taskkill /f /im "RzDeviceEngine.exe"
@@ -57,10 +61,13 @@ sc config <Razer Game Manager Service> start= disabled
 :: Remove the Razer Game Manager Folder and Files
 echo "Attempting to remove Razer Game Manager Files and Folders"
 rmdir /S /q "C:\ProgramData\Razer\Razer Game Manager"
+rmdir /S /q "C:\ProgramData\Razer\GameManager3"
+rmdir /S /q "C:\Program Files (x86)\Razer\Razer Services\GMS3"
 
 :: Remove the Razer Game Manager Registry Entries
 echo "Attempting to remove Razer Game Manager Registry Entries"
 reg delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Razer Game Manager Service" /f
+reg delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Razer Game Manager Service 3" /f
 
 :: Remove the Razer Game Manager Dependency from Razer Synapse
 echo "Attempting to remove Razer Game Manager Dependency from Razer Synapse"
@@ -78,6 +85,7 @@ TIMEOUT /T 1
 :: Restart the Razer Synapse
 echo "Attempting to restart Razer Synapse"
 Start "" "C:\Program Files (x86)\Razer\Synapse3\WPFUI\Framework\Razer Synapse 3 Host\Razer Synapse 3.exe"
+Start "" "C:\Program Files\Razer\RazerAppEngine\RazerAppEngine.exe"
 
 :: Restart the system
 echo "############################################"
